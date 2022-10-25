@@ -103,5 +103,5 @@ theme: fluid
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://github.com/Ssiswent/ssiswent.github.io
+  repo: git@github.com:Ssiswent/ssiswent.github.io.git
   branch: gh-pages
