@@ -15,6 +15,6 @@ jobs:
       - uses: lber19535/github-actions-hexo@1.0
         with:
           deploykey: ${{secrets.DEPLOY_KEY}}
-          username: Ssiswent
+          username: ssiswent
           email: liyugu971208@gmail.com
           branch: gh-pages
