@@ -1,11 +1,11 @@
 ---
 title: Flutter
+index_img: https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/Flutter.png
+tags: [Flutter]
 date: 2022-10-25 17:07:02
-tags:
 ---
 
 # 基本组件
-#Flutter
 
 ## Container和Text
 ![](https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/4C9D9D95-AA12-47E2-BC3B-0270252495BA.png)
