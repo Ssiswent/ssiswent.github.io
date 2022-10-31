@@ -18,11 +18,11 @@
 
 # 用于浏览器标签的图标
 # Icon for browser tab
-favicon: /img/fluid.png
+favicon: /img/avatar.png
 
 # 用于苹果设备的图标
 # Icon for Apple touch
-apple_touch_icon: /img/fluid.png
+apple_touch_icon: /img/avatar.png
 
 # 浏览器标签页中的标题分隔符，效果： 文章名 - 站点名
 # Title separator in browser tab, eg: article - site
@@ -350,15 +350,15 @@ navbar:
     - { key: "category", link: "/categories/", icon: "iconfont icon-category-fill" }
     - { key: "tag", link: "/tags/", icon: "iconfont icon-tags-fill" }
     - { key: "about", link: "/about/", icon: "iconfont icon-user-fill" }
-    - {
-      key: '文档',
-      icon: 'iconfont icon-books',
-      submenu: [
-        { key: '主题博客', link: 'https://hexo.fluid-dev.com/' },
-        { key: '配置指南', link: 'https://hexo.fluid-dev.com/docs/guide/' },
-        { key: '图标用法', link: 'https://hexo.fluid-dev.com/docs/icon/' }
-      ]
-    }
+    # - {
+    #   key: '文档',
+    #   icon: 'iconfont icon-books',
+    #   submenu: [
+    #     { key: '主题博客', link: 'https://hexo.fluid-dev.com/' },
+    #     { key: '配置指南', link: 'https://hexo.fluid-dev.com/docs/guide/' },
+    #     { key: '图标用法', link: 'https://hexo.fluid-dev.com/docs/icon/' }
+    #   ]
+    # }
     #- { key: "links", link: "/links/", icon: "iconfont icon-link-fill" }
 
 # 搜索功能，基于 hexo-generator-search 插件，若已安装其他搜索插件请关闭此功能，以避免生成多余的索引文件
