@@ -1,8 +1,11 @@
 ---
 title: Flutter
+excerpt: Flutter各个基本组件的介绍和使用
 index_img: https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/Flutter.png
+banner_img: https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/banner_flutter5.png
 tags: [Flutter]
 date: 2022-10-25 17:07:02
+# comment: 'utterances'
 ---
 
 # 基本组件
