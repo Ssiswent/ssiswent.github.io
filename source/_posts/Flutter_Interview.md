@@ -417,4 +417,11 @@ flutter: 4-做其他事情
 flutter: TimeoutException after 0:00:03.000000: Future not completed
 ```
 
+**10. 《掘金》的一篇文章中有对事件循环 `event loop` 的详细讲解**
+地址：[掘金](https://juejin.cn/post/6976136324499636261#heading-15)
+{% endnote %}
+
+### 8. Stream
+{% note secondary %}
+
 {% endnote %}
