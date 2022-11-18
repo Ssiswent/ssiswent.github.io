@@ -32,7 +32,31 @@ sudo ./palera1n.sh --tweaks 15.7 --semi-tethered
 {% endnote %}
 
 ## 二、特殊情况处理
-> 1. `File exists`
+### 1. `Error init failed`
+
+![Error init failed](https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/20221118142103.png)
+
+{% note secondary %}
+**解决方法：**
+
+``` bash
+vim palera1n.sh
+
+# 替换以下内容
+https://updates.cdn-apple.com/2022FallFCS/fullrestores/012-38914/C7764173-5CC4-4D58-8F8B-F093F9A060F0/iPhone_4.7_P3_15.7_19H12_Restore.ipsw
+```
+
+替换位置：
+![替换位置](https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/20221118142511.png)
+{% endnote %}
+
+### 2. `File exists`
+
+![File exists](https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/20221118142640.png)
+
+{% note secondary %}
+**解决方法：**
+
 ``` bash
 git clone https://github.com/verygenericname/SSHRD_Script --recursive && SSHRD_Script
 
@@ -42,3 +66,4 @@ git clone https://github.com/verygenericname/SSHRD_Script --recursive && SSHRD_S
 ./sshrd.sh ssh
 apfs_deletefs disk0s1s8
 ```
+{% endnote %}
