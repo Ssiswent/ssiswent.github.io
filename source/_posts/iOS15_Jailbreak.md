@@ -1,16 +1,16 @@
 ---
 title: iOS15 越狱
 excerpt: iOS 15.0-15.7.1 (semi-)tethered checkm8 "jailbreak"
-index_img: https://avatars.githubusercontent.com/u/114239186?s=100&v=4
-# banner_img: https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/20221101154334.png
+index_img: https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/palera1n.png
+banner_img: https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/palera1n.png
+image.png
 tags: [iPhone]
 category_bar: true
 categories: [iPhone]
 ---
 
-## 步骤
+## 一、越狱
 
-### 一、越狱
 ``` bash
 git clone --recursive https://github.com/palera1n/palera1n && cd palera1n
 
