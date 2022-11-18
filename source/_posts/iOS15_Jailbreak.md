@@ -31,7 +31,9 @@ sudo ./palera1n.sh --tweaks 15.7 --semi-tethered
 ![成功的提示](https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/20221117113928.png)
 {% endnote %}
 
-## 二、特殊情况处理
+## 二、越狱效果
+
+## 三、特殊情况处理
 ### 1. `Error init failed`
 
 ![Error init failed](https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/20221118142103.png)
