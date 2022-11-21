@@ -3,7 +3,6 @@ title: iOS15 越狱
 excerpt: iOS 15.0-15.7.1 (semi-)tethered checkm8 "jailbreak"
 index_img: https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/palera1n.png
 banner_img: https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/palera1n.png
-image.png
 tags: [iPhone]
 category_bar: true
 categories: [iPhone]
