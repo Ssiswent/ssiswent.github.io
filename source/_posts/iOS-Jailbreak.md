@@ -1,5 +1,5 @@
 ---
-title: iOS15 越狱
+title: iOS 15 越狱
 excerpt: iOS 15.0-15.7.1 (semi-)tethered checkm8 "jailbreak"
 index_img: https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/palera1n.png
 banner_img: https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/palera1n.png
@@ -7,6 +7,9 @@ tags: [iPhone]
 category_bar: true
 categories: [iPhone]
 ---
+
+> 感谢**palera1n**团队！
+> [仓库地址](https://github.com/palera1n/palera1n)
 
 ## 一、越狱
 
@@ -31,6 +34,14 @@ sudo ./palera1n.sh --tweaks 15.7 --semi-tethered
 {% endnote %}
 
 ## 二、越狱效果
+{% gi 6 3-3 %}
+  ![IMG_0010](https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/IMG_0010.PNG)
+  ![IMG_0011](https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/IMG_0011.PNG)
+  ![IMG_0002](https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/IMG_0002.PNG)
+  ![IMG_0001](https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/IMG_0001.PNG)
+  ![IMG_0008](https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/IMG_0008.PNG)
+  ![IMG_0009](https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/IMG_0009.PNG)
+{% endgi %}
 
 ## 三、特殊情况处理
 ### 1. `Error init failed`
