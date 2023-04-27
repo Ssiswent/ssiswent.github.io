@@ -21,12 +21,19 @@ When provided with a programming problem in natural language, Codex is capable o
 ## Usage
 
 ### Generate code
+![Generate code](https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/20230427173916.png)
 
 ### Generate comment
-![Generate comment](https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/CleanShot 2023-04-26 at 11.39.49@2x.png)
+![Generate comment](https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/GenerateComment.png)
 
 ### Write comment to generate code
 ![Write comment to generate code](https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/20230427172204.png)
+
+### Write code with context 
+![Write code with context](https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/20230427174324.png)
+
+### Write algorithmic function
+![Write algorithmic function](https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/20230427174748.png)
 
 
 ## Privacy Statement
