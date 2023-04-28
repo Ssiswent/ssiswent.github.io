@@ -1,0 +1,768 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.png">
+  <link rel="icon" href="/img/avatar.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Ssiswent">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Your AI pair programmer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Github Copilot">
+<meta property="og:url" content="https://ssiswent.github.io/2023/04/27/Github%20Copilot/index.html">
+<meta property="og:site_name" content="Ssiswent&#39;s Blog">
+<meta property="og:description" content="Your AI pair programmer">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.podfeet.com/blog/wp-content/uploads/2021/09/GitHub-Copilot-logo-1040x650.png">
+<meta property="article:published_time" content="2023-04-27T14:25:02.000Z">
+<meta property="article:modified_time" content="2023-04-28T07:58:15.150Z">
+<meta property="article:author" content="Ssiswent">
+<meta property="article:tag" content="Coding">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.podfeet.com/blog/wp-content/uploads/2021/09/GitHub-Copilot-logo-1040x650.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Github Copilot - Ssiswent&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"ssiswent.github.io","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0-rc1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Ssiswent&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://github.githubassets.com/images/modules/site/social-cards/copilot-ga.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Github Copilot"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-04-27 14:25" pubdate>
+          2023年4月27日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          25 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar category-bar" style="margin-right: -1rem">
+    
+
+
+
+
+
+<div class="category-list">
+  
+  
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Coding"
+        id="heading-cddcade0405954c4325ee1fb11e3dc0e" role="tab" data-toggle="collapse" href="#collapse-cddcade0405954c4325ee1fb11e3dc0e"
+        aria-expanded="true"
+      >
+        Coding
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-cddcade0405954c4325ee1fb11e3dc0e"
+           role="tabpanel" aria-labelledby="heading-cddcade0405954c4325ee1fb11e3dc0e">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/2023/04/27/Github%20Copilot/" title="Github Copilot"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">Github Copilot</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+</div>
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Github Copilot</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2023年4月28日 07:58
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><div class="note note-secondary">
+            <p>GitHub Copilot is a cloud-based artificial intelligence tool developed by GitHub and OpenAI to assist users of Visual Studio Code, Visual Studio, Neovim, and JetBrains integrated development environments (IDEs) by autocompleting code.</p><p>GitHub Copilot is powered by the OpenAI Codex, which is a modified, production version of the Generative Pre-trained Transformer 3 (GPT-3), a language model using deep-learning to produce human-like text. The Codex model is additionally trained on gigabytes of source code in a dozen programming languages.</p><p>When provided with a programming problem in natural language, Codex is capable of generating solution code. It is also able to describe input code and translate code between programming languages.</p>
+          </div>
+
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><h3 id="1-Generate-code"><a href="#1-Generate-code" class="headerlink" title="1. Generate code"></a>1. Generate code</h3><p><img src="https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/20230427173916.png" srcset="/img/loading.gif" lazyload alt="Generate code"></p>
+<h3 id="2-Generate-comment"><a href="#2-Generate-comment" class="headerlink" title="2. Generate comment"></a>2. Generate comment</h3><p><img src="https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/20230428114058.png" srcset="/img/loading.gif" lazyload alt="Generate comment"><br><img src="https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/GenerateComment.png" srcset="/img/loading.gif" lazyload alt="Generate comment"><br><img src="https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/20230428114627.png" srcset="/img/loading.gif" lazyload alt="Generate comment"></p>
+<h3 id="3-Generate-content"><a href="#3-Generate-content" class="headerlink" title="3. Generate content"></a>3. Generate content</h3><p><img src="https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/20230428115610.png" srcset="/img/loading.gif" lazyload alt="Generate content"></p>
+<h3 id="4-Write-comment-to-generate-code"><a href="#4-Write-comment-to-generate-code" class="headerlink" title="4. Write comment to generate code"></a>4. Write comment to generate code</h3><p><img src="https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/20230427172204.png" srcset="/img/loading.gif" lazyload alt="Write comment to generate code"></p>
+<h3 id="5-Write-code-with-context"><a href="#5-Write-code-with-context" class="headerlink" title="5. Write code with context"></a>5. Write code with context</h3><p><img src="https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/20230427174324.png" srcset="/img/loading.gif" lazyload alt="Write code with context"></p>
+<h3 id="6-Write-algorithmic-function"><a href="#6-Write-algorithmic-function" class="headerlink" title="6. Write algorithmic function"></a>6. Write algorithmic function</h3><p><img src="https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/20230427174748.png" srcset="/img/loading.gif" lazyload alt="Write algorithmic function"></p>
+<h3 id="7-Translate-code-between-programming-languages"><a href="#7-Translate-code-between-programming-languages" class="headerlink" title="7. Translate code between programming languages"></a>7. Translate code between programming languages</h3><p><img src="https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/20230428142652.png" srcset="/img/loading.gif" lazyload alt="Translate code"></p>
+<h3 id="8-Translate-content"><a href="#8-Translate-content" class="headerlink" title="8. Translate content"></a>8. Translate content</h3><p><img src="https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/20230428140129.png" srcset="/img/loading.gif" lazyload alt="Translate content"></p>
+<h2 id="GitHub-Copilot-Labs"><a href="#GitHub-Copilot-Labs" class="headerlink" title="GitHub Copilot Labs"></a>GitHub Copilot Labs</h2><h3 id="1-Explain-code"><a href="#1-Explain-code" class="headerlink" title="1. Explain code"></a>1. Explain code</h3><p><img src="https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/20230428150544.png" srcset="/img/loading.gif" lazyload alt="Explain code"></p>
+<h3 id="2-Use-prompt-to-generate-answers-like-ChatGPT"><a href="#2-Use-prompt-to-generate-answers-like-ChatGPT" class="headerlink" title="2. Use prompt to generate answers like ChatGPT"></a>2. Use prompt to generate answers like ChatGPT</h3><p><img src="https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/20230428151115.png" srcset="/img/loading.gif" lazyload alt="Use prompt"></p>
+<h3 id="3-Translate-code-into-other-programming-languages"><a href="#3-Translate-code-into-other-programming-languages" class="headerlink" title="3. Translate code into other programming languages"></a>3. Translate code into other programming languages</h3><p><img src="https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/20230428151242.png" srcset="/img/loading.gif" lazyload alt="Translate code"></p>
+<h3 id="4-Readable"><a href="#4-Readable" class="headerlink" title="4. Readable"></a>4. Readable</h3><ul>
+<li>Before<br><img src="https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/20230428151551.png" srcset="/img/loading.gif" lazyload alt="Before"></li>
+<li>After<br><img src="https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/20230428151628.png" srcset="/img/loading.gif" lazyload alt="After"></li>
+</ul>
+<h3 id="5-Add-types"><a href="#5-Add-types" class="headerlink" title="5. Add types"></a>5. Add types</h3><ul>
+<li>Before<br><img src="https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/20230428151944.png" srcset="/img/loading.gif" lazyload alt="Add types"></li>
+<li>After<br><img src="https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/20230428152037.png" srcset="/img/loading.gif" lazyload alt="After"></li>
+</ul>
+<h3 id="6-And-so-on"><a href="#6-And-so-on" class="headerlink" title="6. And so on"></a>6. And so on</h3><p><img src="https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/20230428152508.png" srcset="/img/loading.gif" lazyload alt="And so on"></p>
+<h2 id="GitHub-Copilot-X"><a href="#GitHub-Copilot-X" class="headerlink" title="GitHub Copilot X"></a>GitHub Copilot X</h2><div class="note note-secondary">
+            <p>With chat and terminal interfaces, support for pull requests, and early adoption of OpenAI’s GPT-4, GitHub Copilot X is our vision for the future of AI-powered software development. Integrated into every part of your workflow.</p><p><strong>link:</strong> <span class="label label-primary"><strong><a target="_blank" rel="noopener" href="https://github.com/features/preview/copilot-x">GitHub Copilot X</a></strong></span></p>
+          </div>
+<p><img src="https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/20230428154541.png" srcset="/img/loading.gif" lazyload alt="GitHub Copilot X"><br><img src="https://cdn.jsdelivr.net/gh/Ssiswent/myBlogResource/images/20230428155203.png" srcset="/img/loading.gif" lazyload alt="GitHub Next"></p>
+<h2 id="Privacy-Statement"><a href="#Privacy-Statement" class="headerlink" title="Privacy Statement"></a>Privacy Statement</h2><p><strong>link:</strong> <a target="_blank" rel="noopener" href="https://docs.github.com/en/site-policy/privacy-policies/github-copilot-for-business-privacy-statement">GitHub Copilot for Business Privacy Statement</a></p>
+<h2 id="Specific-Terms"><a href="#Specific-Terms" class="headerlink" title="Specific Terms"></a>Specific Terms</h2><p><strong>link:</strong> <a target="_blank" rel="noopener" href="https://github.com/customer-terms/github-copilot-product-specific-terms">GitHub Copilot Product Specific Terms</a></p>
+<h2 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h2><h3 id="1-What-data-does-Copilot-for-Business-collect"><a href="#1-What-data-does-Copilot-for-Business-collect" class="headerlink" title="1. What data does Copilot for Business collect?"></a>1. What data does Copilot for Business collect?</h3><div class="note note-secondary">
+            <p>GitHub Copilot for Business relies on file content and additional data to work. It collects data to provide the service, some of which is then retained for further analysis and product improvements.</p><p>Copilot for Business processes data as described below:</p><p><span class="label label-primary"><strong>Prompts</strong></span><br>A Prompt is the contextual information the GitHub Copilot extension sends when a user is working on a file and pauses typing, or when the user opens the Copilot pane. Copilot for Business Prompts are only transmitted in real-time. Copilot for Business does not retain Prompts.</p><p><span class="label label-primary"><strong>Suggestions</strong></span><br>A Suggestion is one or more lines of proposed text returned to the GitHub Copilot extension after a Prompt is received and processed by the AI-model. Copilot for Business Suggestions are only transmitted in real-time. Copilot for Business does not retain Suggestions.</p><p><span class="label label-primary"><strong>User Engagement Data</strong></span><br>When you use GitHub Copilot it will collect User Engagement Data. This is usage information about events generated when interacting with the IDE or editor. These events include user edit actions like whether Suggestions are accepted or dismissed, and error and general usage data to identify metrics like latency and features engagement. This information may include personal data, such as pseudonymous identifiers.</p>
+          </div>
+
+<h3 id="2-How-is-the-data-in-Copilot-for-Business-used-and-shared"><a href="#2-How-is-the-data-in-Copilot-for-Business-used-and-shared" class="headerlink" title="2. How is the data in Copilot for Business used and shared?"></a>2. How is the data in Copilot for Business used and shared?</h3><div class="note note-secondary">
+            <p>User Engagement Data is used by GitHub and Microsoft to provide the service and to enable improvements.</p><p>Such uses may include:</p><ul><li><p>Evaluating GitHub Copilot, e.g., by measuring the positive impact it has on the user</p></li><li><p>Fine tuning ranking and sorting algorithms and Prompt crafting</p></li><li><p>Detecting potential abuse of GitHub Copilot or violation of Acceptable Use Policies</p></li><li><p>Conducting experiments and research related to developers and their use of developer tools and services</p></li></ul>
+          </div>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Coding/" class="category-chain-item">Coding</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Coding/">#Coding</a>
+      
+    </div>
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/04/28/Flutter_Interview/" title="Flutter面试">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Flutter面试</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/11/01/Flutter_Install/" title="Flutter安装流程">
+                        <span class="hidden-mobile">Flutter安装流程</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'Ssiswent/ssiswent.github.io');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
