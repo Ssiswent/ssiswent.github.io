@@ -1,7 +1,7 @@
 ---
 title: 2026 蜜月旅行规划：泰国 7 天 × 香港澳门 6 天
 subtitle: 松弛、不赶路、但足够浪漫的双人旅行方案
-excerpt: 给 Ssiswent 和爱人的一份蜜月方案：香港看夜景，澳门住酒店，曼谷开胃，苏梅岛收尾。重点不是打卡越多越好，而是住得好、走得慢、晚上好看、白天不累。
+excerpt: 一份更适合蜜月的 13 天旅行方案：香港看夜景，澳门住酒店，曼谷开胃，苏梅岛收尾，重点是少赶路、少换酒店、把舒服留给后半程。
 description: 一篇适合 2026 蜜月的旅行攻略，覆盖泰国 7 天与香港澳门 6 天行程建议、酒店推荐、路线安排、舒适细节与下一步规划建议。
 keywords:
   - 蜜月旅行
@@ -15,8 +15,8 @@ date: 2026-03-09 16:26:00
 updated: 2026-03-09 16:39:00
 categories: [旅行]
 tags: [旅行, 蜜月, 泰国, 香港, 澳门]
-index_img: /img/2026-honeymoon-share-card.svg
-banner_img: /img/2026-honeymoon-share-card.svg
+index_img: /img/2026-honeymoon-share-card.png
+banner_img: /img/2026-honeymoon-banner.svg
 comments: true
 ---
 
@@ -24,7 +24,7 @@ comments: true
 
 {% raw %}
 <style>
-:root {
+.honeymoon-page {
       --bg: #0b1020;
       --bg-soft: #111934;
       --card: rgba(255,255,255,.08);
@@ -44,8 +44,8 @@ comments: true
     }
 
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
+    .honeymoon-page { scroll-behavior: smooth; }
+    .honeymoon-page {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", "Helvetica Neue", sans-serif;
       color: var(--text);
@@ -57,18 +57,18 @@ comments: true
       line-height: 1.7;
     }
 
-    a { color: #9ed7ff; text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    .honeymoon-page a { color: #9ed7ff; text-decoration: none; }
+    .honeymoon-page a:hover { text-decoration: underline; }
 
-    .wrap { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+    .honeymoon-page .wrap { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
 
-    .hero {
+    .honeymoon-page .hero {
       position: relative;
       overflow: hidden;
       padding: 56px 0 30px;
     }
 
-    .hero::before {
+    .honeymoon-page .hero::before {
       content: "";
       position: absolute;
       inset: 0;
@@ -80,7 +80,7 @@ comments: true
       pointer-events: none;
     }
 
-    .hero-card {
+    .honeymoon-page .hero-card {
       position: relative;
       padding: 44px;
       border-radius: 32px;
@@ -93,7 +93,7 @@ comments: true
       overflow: hidden;
     }
 
-    .hero-glow {
+    .honeymoon-page .hero-glow {
       position: absolute;
       width: 420px;
       height: 420px;
@@ -105,7 +105,7 @@ comments: true
       pointer-events: none;
     }
 
-    .kicker {
+    .honeymoon-page .kicker {
       display: inline-flex;
       align-items: center;
       gap: 10px;
@@ -118,14 +118,14 @@ comments: true
       letter-spacing: .2px;
     }
 
-    h1 {
+    .honeymoon-page h1 {
       margin: 18px 0 18px;
       font-size: clamp(34px, 6vw, 70px);
       line-height: 1.03;
       letter-spacing: -1.8px;
     }
 
-    .lead {
+    .honeymoon-page .lead {
       max-width: 860px;
       font-size: 20px;
       color: var(--text);
@@ -133,14 +133,14 @@ comments: true
       margin: 0;
     }
 
-    .chips {
+    .honeymoon-page .chips {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
       margin: 24px 0 0;
     }
 
-    .chip {
+    .honeymoon-page .chip {
       padding: 10px 14px;
       border-radius: 999px;
       background: rgba(255,255,255,.10);
@@ -150,14 +150,14 @@ comments: true
       white-space: nowrap;
     }
 
-    .hero-grid {
+    .honeymoon-page .hero-grid {
       margin-top: 28px;
       display: grid;
       grid-template-columns: 1.3fr .9fr;
       gap: 18px;
     }
 
-    .stat, .panel, .card, .hotel-card, .day-card, .tip-card {
+    .honeymoon-page .stat, .honeymoon-page .panel, .honeymoon-page .card, .honeymoon-page .hotel-card, .honeymoon-page .day-card, .honeymoon-page .honeymoon-page .tip-card {
       background: var(--card);
       border: 1px solid var(--line);
       border-radius: var(--radius);
@@ -165,12 +165,12 @@ comments: true
       box-shadow: var(--shadow);
     }
 
-    .stat {
+    .honeymoon-page .stat {
       padding: 24px 26px;
       min-height: 100%;
     }
 
-    .stat small {
+    .honeymoon-page .stat small {
       display: block;
       color: var(--muted);
       text-transform: uppercase;
@@ -179,20 +179,20 @@ comments: true
       margin-bottom: 10px;
     }
 
-    .stat strong {
+    .honeymoon-page .stat strong {
       display: block;
       font-size: 42px;
       line-height: 1;
       margin-bottom: 10px;
     }
 
-    .stat p { margin: 0; color: var(--muted); }
+    .honeymoon-page .stat p { margin: 0; color: var(--muted); }
 
-    .panel {
+    .honeymoon-page .panel {
       padding: 26px;
     }
 
-    .toc {
+    .honeymoon-page .toc {
       position: sticky;
       top: 10px;
       z-index: 3;
@@ -204,14 +204,14 @@ comments: true
       box-shadow: 0 14px 40px rgba(0,0,0,.24);
     }
 
-    .toc-inner {
+    .honeymoon-page .toc-inner {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       padding: 12px;
     }
 
-    .toc a {
+    .toc .honeymoon-page a {
       display: inline-flex;
       padding: 10px 14px;
       border-radius: 999px;
@@ -222,54 +222,54 @@ comments: true
       text-decoration: none;
     }
 
-    section {
+    .honeymoon-page section {
       padding: 26px 0;
     }
 
-    .section-head {
+    .honeymoon-page .section-head {
       margin-bottom: 18px;
     }
 
-    h2 {
+    .honeymoon-page h2 {
       margin: 0 0 8px;
       font-size: clamp(26px, 3vw, 38px);
       line-height: 1.15;
       letter-spacing: -.8px;
     }
 
-    .sub {
+    .honeymoon-page .sub {
       color: var(--muted);
       margin: 0;
       font-size: 16px;
     }
 
-    .grid-2 {
+    .honeymoon-page .grid-2 {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
     }
 
-    .grid-3 {
+    .honeymoon-page .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 18px;
     }
 
-    .card {
+    .honeymoon-page .card {
       padding: 24px;
     }
 
-    .card h3 {
+    .honeymoon-page .card h3 {
       margin: 0 0 8px;
       font-size: 22px;
     }
 
-    .card p, .card li {
+    .honeymoon-page .card p, .honeymoon-page .card li {
       color: var(--muted);
       margin: 0;
     }
 
-    .route {
+    .honeymoon-page .route {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
@@ -277,7 +277,7 @@ comments: true
       margin-top: 14px;
     }
 
-    .route-step {
+    .honeymoon-page .route-step {
       padding: 12px 16px;
       border-radius: 14px;
       background: rgba(255,255,255,.08);
@@ -285,19 +285,19 @@ comments: true
       font-weight: 700;
     }
 
-    .route-arrow {
+    .honeymoon-page .route-arrow {
       color: var(--muted);
       font-size: 18px;
       padding: 0 2px;
     }
 
-    .day-grid {
+    .honeymoon-page .day-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 16px;
     }
 
-    .day-card {
+    .honeymoon-page .day-card {
       padding: 20px;
       position: relative;
       overflow: hidden;
@@ -316,7 +316,7 @@ comments: true
       pointer-events: none;
     }
 
-    .day-label {
+    .honeymoon-page .day-label {
       display: inline-block;
       padding: 7px 10px;
       font-size: 12px;
@@ -328,26 +328,26 @@ comments: true
       font-weight: 700;
     }
 
-    .day-card h4 {
+    .honeymoon-page .day-card h4 {
       margin: 0 0 10px;
       font-size: 20px;
       line-height: 1.3;
     }
 
-    .day-card ul {
+    .honeymoon-page .day-card ul {
       margin: 0;
       padding-left: 18px;
       color: var(--muted);
     }
 
-    .split-banner {
+    .honeymoon-page .split-banner {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 18px;
       margin: 16px 0 8px;
     }
 
-    .banner {
+    .honeymoon-page .banner {
       padding: 24px;
       border-radius: 28px;
       border: 1px solid rgba(255,255,255,.12);
@@ -357,27 +357,27 @@ comments: true
       box-shadow: var(--shadow);
     }
 
-    .banner.th {
+    .honeymoon-page .banner.th {
       background: linear-gradient(135deg, rgba(4,78,62,.95), rgba(7,89,133,.86) 70%, rgba(45,212,191,.25));
     }
 
-    .banner.hk {
+    .honeymoon-page .banner.hk {
       background: linear-gradient(135deg, rgba(30,41,99,.96), rgba(109,40,217,.78) 65%, rgba(236,72,153,.26));
     }
 
-    .banner h3 {
+    .honeymoon-page .banner h3 {
       margin: 0 0 10px;
       font-size: 30px;
       line-height: 1.15;
     }
 
-    .banner p {
+    .honeymoon-page .banner p {
       margin: 0;
       max-width: 82%;
       color: rgba(255,255,255,.84);
     }
 
-    .banner .mini {
+    .honeymoon-page .banner .mini {
       position: absolute;
       right: 18px;
       bottom: 18px;
@@ -388,12 +388,12 @@ comments: true
       filter: blur(4px);
     }
 
-    .hotel-card {
+    .honeymoon-page .hotel-card {
       padding: 22px;
       height: 100%;
     }
 
-    .hotel-card .rank {
+    .hotel-card .honeymoon-page .rank {
       display: inline-flex;
       padding: 7px 10px;
       border-radius: 999px;
@@ -404,19 +404,19 @@ comments: true
       font-weight: 700;
     }
 
-    .hotel-card h4 {
+    .honeymoon-page .hotel-card h4 {
       margin: 0 0 8px;
       font-size: 20px;
       line-height: 1.35;
     }
 
-    .hotel-card .meta {
+    .hotel-card .met.honeymoon-page a {
       color: var(--muted);
       font-size: 14px;
       margin-bottom: 10px;
     }
 
-    .hotel-card ul {
+    .honeymoon-page .hotel-card ul {
       margin: 0;
       padding-left: 18px;
       color: var(--muted);
@@ -437,13 +437,13 @@ comments: true
       color: var(--text);
     }
 
-    .tips {
+    .honeymoon-page .tips {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 14px;
     }
 
-    .tip-card {
+    .honeymoon-page .tip-card {
       padding: 18px 18px 18px 52px;
       position: relative;
     }
@@ -462,14 +462,14 @@ comments: true
       font-weight: 800;
     }
 
-    .footer {
+    .honeymoon-page .footer {
       padding: 30px 0 70px;
       color: var(--muted);
       text-align: center;
       font-size: 14px;
     }
 
-    .note {
+    .honeymoon-page .note {
       margin-top: 14px;
       padding: 16px 18px;
       border-radius: 16px;
@@ -479,26 +479,45 @@ comments: true
     }
 
     @media (max-width: 980px) {
-      .hero-grid, .grid-2, .grid-3, .day-grid, .split-banner, .tips {
+      .hero-grid, .grid-2, .grid-3, .day-grid, .split-banner, .honeymoon-page .tips {
         grid-template-columns: 1fr;
       }
-      .hero-card { padding: 28px; }
-      .panel, .card, .hotel-card, .day-card, .tip-card, .stat { padding: 20px; }
-      .banner p { max-width: 100%; }
+      .honeymoon-page .hero-card { padding: 28px; }
+      .panel, .card, .hotel-card, .day-card, .tip-card, .honeymoon-page .stat { padding: 20px; }
+      .honeymoon-page .banner p { max-width: 100%; }
     }
 
     @media print {
-      body { background: #fff; color: #111; }
-      .hero::before, .hero-glow { display: none; }
-      .hero-card, .stat, .panel, .card, .hotel-card, .day-card, .tip-card, .banner, .toc {
+      .honeymoon-page { background: #fff; color: #111; }
+      .hero::before, .honeymoon-page .hero-glow { display: none; }
+      .hero-card, .stat, .panel, .card, .hotel-card, .day-card, .tip-card, .banner, .honeymoon-page .toc {
         box-shadow: none;
         backdrop-filter: none;
       }
-      a { color: #1d4ed8; }
-      .footer { color: #555; }
+      .honeymoon-page a { color: #1d4ed8; }
+      .honeymoon-page .footer { color: #555; }
     }
+
+.honeymoon-page { margin: 0 -8px; border-radius: 24px; overflow: hidden; }
+.honeymoon-page .hero-card { border-radius: 28px; }
+.honeymoon-page .toc { top: 72px; }
+.honeymoon-page .lead strong { color: #fff; }
+@media (max-width: 768px) {
+  .honeymoon-page { margin: 0 -12px; }
+  .honeymoon-page .hero { padding-top: 24px; }
+  .honeymoon-page h1 { font-size: clamp(28px, 9vw, 42px); line-height: 1.12; letter-spacing: -0.8px; }
+  .honeymoon-page .lead { font-size: 16px; }
+  .honeymoon-page .chips { gap: 8px; }
+  .honeymoon-page .chip, .honeymoon-page .toc a { font-size: 13px; padding: 8px 12px; }
+  .honeymoon-page .route-step { width: 100%; text-align: center; }
+  .honeymoon-page .route-arrow { width: 100%; text-align: center; transform: rotate(90deg); }
+  .honeymoon-page .toc { position: static; margin-top: 16px; }
+  .honeymoon-page .day-card h4, .honeymoon-page .hotel-card h4 { font-size: 18px; }
+}
+
 </style>
 
+<div class="honeymoon-page">
 <header class="hero">
     <div class="wrap">
       <div class="hero-card">
@@ -918,4 +937,5 @@ comments: true
     </div>
   </div>
 
+</div>
 {% endraw %}
