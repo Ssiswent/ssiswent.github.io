@@ -1,11 +1,29 @@
-<!doctype html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>2026 蜜月旅行规划｜泰国 × 香港澳门</title>
-  <style>
-    :root {
+---
+title: 2026 蜜月旅行规划：泰国 7 天 × 香港澳门 6 天
+subtitle: 松弛、不赶路、但足够浪漫的双人旅行方案
+excerpt: 给 Ssiswent 和爱人的一份蜜月方案：香港看夜景，澳门住酒店，曼谷开胃，苏梅岛收尾。重点不是打卡越多越好，而是住得好、走得慢、晚上好看、白天不累。
+description: 一篇适合 2026 蜜月的旅行攻略，覆盖泰国 7 天与香港澳门 6 天行程建议、酒店推荐、路线安排、舒适细节与下一步规划建议。
+keywords:
+  - 蜜月旅行
+  - 泰国旅行
+  - 香港澳门
+  - 苏梅岛
+  - 曼谷
+  - 旅行规划
+author: Ssiswent
+date: 2026-03-09 16:26:00
+updated: 2026-03-09 16:39:00
+categories: [旅行]
+tags: [旅行, 蜜月, 泰国, 香港, 澳门]
+index_img: /img/2026-honeymoon-share-card.svg
+banner_img: /img/2026-honeymoon-share-card.svg
+comments: true
+---
+
+<!-- more -->
+
+<style>
+:root {
       --bg: #0b1020;
       --bg-soft: #111934;
       --card: rgba(255,255,255,.08);
@@ -478,10 +496,9 @@
       a { color: #1d4ed8; }
       .footer { color: #555; }
     }
-  </style>
-</head>
-<body>
-  <header class="hero">
+</style>
+
+<header class="hero">
     <div class="wrap">
       <div class="hero-card">
         <div class="hero-glow"></div>
@@ -899,5 +916,3 @@
       已为 Telegram 发送独立 HTML 文档版本 · 适合保存、转发、打印或继续二次编辑
     </div>
   </div>
-</body>
-</html>
