@@ -22,6 +22,7 @@ comments: true
 
 <!-- more -->
 
+{% raw %}
 <style>
 :root {
       --bg: #0b1020;
@@ -916,3 +917,5 @@ comments: true
       已为 Telegram 发送独立 HTML 文档版本 · 适合保存、转发、打印或继续二次编辑
     </div>
   </div>
+
+{% endraw %}
