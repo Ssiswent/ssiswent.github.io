@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="2026 蜜月旅行规划分享卡片">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="45%" stop-color="#1f388e"/>
+      <stop offset="100%" stop-color="#5d2b7c"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="20%" cy="20%" r="45%">
+      <stop offset="0%" stop-color="#6ee7f9" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#6ee7f9" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="80%" cy="18%" r="40%">
+      <stop offset="0%" stop-color="#ff79c6" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#ff79c6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" rx="32"/>
+  <rect width="1200" height="630" fill="url(#glow1)" rx="32"/>
+  <rect width="1200" height="630" fill="url(#glow2)" rx="32"/>
+  <g opacity="0.18" stroke="#ffffff">
+    <path d="M0 80H1200M0 160H1200M0 240H1200M0 320H1200M0 400H1200M0 480H1200M0 560H1200"/>
+    <path d="M80 0V630M160 0V630M240 0V630M320 0V630M400 0V630M480 0V630M560 0V630M640 0V630M720 0V630M800 0V630M880 0V630M960 0V630M1040 0V630M1120 0V630"/>
+  </g>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue',sans-serif" fill="#eef2ff">
+    <rect x="72" y="72" width="270" height="54" rx="27" fill="rgba(255,255,255,0.12)"/>
+    <text x="104" y="108" font-size="28" font-weight="700">💍 2026 Honeymoon Plan</text>
+    <text x="72" y="220" font-size="64" font-weight="800">泰国 7 天 × 香港澳门 6 天</text>
+    <text x="72" y="300" font-size="34" opacity="0.92">松弛、不赶路、但足够浪漫</text>
+    <text x="72" y="392" font-size="28" opacity="0.86">香港看夜景 · 澳门住酒店 · 曼谷开胃 · 苏梅岛收尾</text>
+    <g font-size="24" opacity="0.92">
+      <rect x="72" y="452" width="168" height="48" rx="24" fill="rgba(255,255,255,0.1)"/>
+      <text x="108" y="483">🇹🇭 泰国 7 天</text>
+      <rect x="260" y="452" width="210" height="48" rx="24" fill="rgba(255,255,255,0.1)"/>
+      <text x="296" y="483">🇭🇰🇲🇴 港澳 6 天</text>
+      <rect x="490" y="452" width="180" height="48" rx="24" fill="rgba(255,255,255,0.1)"/>
+      <text x="526" y="483">✨ 酒店优先</text>
+    </g>
+    <text x="72" y="570" font-size="24" opacity="0.75">Ssiswent's Blog · Travel / Honeymoon</text>
+  </g>
+</svg>
